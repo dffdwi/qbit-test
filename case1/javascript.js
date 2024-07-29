@@ -55,6 +55,8 @@ console.log(fruitName);
 
 console.log("==========================================================");
 
+// Pertanyaan Tambahan
+
 const addFruit = (newFruit) => {
   fruits.push(...newFruit);
 };
