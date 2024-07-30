@@ -1,0 +1,28 @@
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/ArchivoRegular.ttf");
+  font-family: "Archivo";
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/OswaldSemiBold.ttf");
+  font-family: "Oswald";
+  font-weight: 600;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/OswaldBold.ttf");
+  font-family: "Oswald";
+  font-weight: 700;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/ArchivoMediumItalic.ttf");
+  font-family: "Archivo";
+  font-weight: 500;
+}
