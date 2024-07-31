@@ -7,9 +7,16 @@ interface Props {
   subHeading?: React.ReactNode;
 }
 
-export default function FloatingSection({ mainHeading = "6", subHeading = "Varian Bakso", ...props }: Props) {
+const FloatingSection: React.FC<Props> = ({
+  mainHeading,
+  subHeading,
+  ...props
+}) => {
   return (
-    <div {...props} className={`${props.className} flex flex-col items-center gap-1`}>
+    <div
+      {...props}
+      className={`${props.className} flex flex-col items-center gap-1`}
+    >
       <Heading size="headingxl" as="h1" className="capitalize !text-white-a700">
         {mainHeading}
       </Heading>
@@ -18,4 +25,6 @@ export default function FloatingSection({ mainHeading = "6", subHeading = "Varia
       </Heading>
     </div>
   );
-}
+};
+
+export default FloatingSection;

@@ -1,6 +1,6 @@
 import { Button, Img, Text, Heading } from "../../components";
 
-export default function AboutUs() {
+const AboutUs: React.FC = () => {
   return (
     <div>
       <div className="flex justify-center bg-white-a700 py-[50px] md:py-5">
@@ -8,7 +8,7 @@ export default function AboutUs() {
           <Img
             src="/images/img_left.png"
             alt="Left"
-            className="h-[620px] w-[48%] rounded-[30px] object-contain md:w-full"
+            className="h-[620px] w-[48%] rounded-[50%] object-contain md:w-full md:h-full"
           />
           <div className="flex w-[48%] flex-col items-start gap-[34px] py-[60px] md:w-full md:py-5">
             <div className="flex flex-col items-start justify-center gap-3 self-stretch">
@@ -80,4 +80,6 @@ export default function AboutUs() {
       </div>
     </div>
   );
-}
+};
+
+export default AboutUs;

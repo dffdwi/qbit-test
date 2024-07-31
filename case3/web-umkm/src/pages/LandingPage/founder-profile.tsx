@@ -13,7 +13,7 @@ const data = [
     userImage: "images/img_checkmark.svg",
     userName: "Inovasi dan Tradisi",
     userDescription:
-      "Bereksperimen rasa baru sambil menjaga cita rasa otentik bakso .",
+      "Bereksperimen rasa baru sambil menjaga cita rasa otentik bakso.",
   },
   {
     userImage: "images/img_checkmark.svg",
@@ -22,7 +22,7 @@ const data = [
   },
 ];
 
-export default function ProfileFounder() {
+const ProfileFounder: React.FC = () => {
   return (
     <div className="bg-[#e0e0e0]">
       <div className="flex justify-center py-[100px] md:py-5">
@@ -67,4 +67,6 @@ export default function ProfileFounder() {
       </div>
     </div>
   );
-}
+};
+
+export default ProfileFounder;

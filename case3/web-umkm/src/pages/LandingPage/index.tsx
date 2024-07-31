@@ -6,6 +6,7 @@ import AboutUs from "./about-us";
 import FloatingSection from "../../components/FloatingSection";
 import ProfileFounder from "./founder-profile";
 import PartnerList from "./partner-list";
+import Services from "./services";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -44,15 +45,15 @@ const LandingPage: React.FC = () => {
           contentClassName="flex items-center justify-center"
         >
           <div
-            className="w-full h-[798px] self-stretch py-5 md:h-auto relative flex items-center justify-center"
+            className="w-full h-[798px] self-stretch py-5 md:h-auto relative flex items-center justify-center "
             style={{
               background:
                 "linear-gradient(90deg, rgba(89, 31, 10, 0.5), rgba(89, 31, 10, 0.1))",
             }}
           >
             <div className="absolute inset-0 z-0"></div>
-            <div className="container-xs flex flex-col items-center relative z-10 h-full">
-              <div className="flex flex-col gap-[100px] md:gap-[75px] md:p-5 sm:gap-[50px] w-full">
+            <div className="container-xs flex flex-col items-center relative z-10 h-full md:h-[100dvh]">
+              <div className="flex flex-col gap-[100px] md:gap-[75px] md:p-5 sm:gap-[50px] w-full ">
                 <Header landingPageHeight={landingPageHeight} />
                 <div className="flex flex-col items-start gap-[34px] mt-auto">
                   <div className="flex flex-col items-start gap-5 self-stretch">
@@ -80,8 +81,8 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
         </Parallax>
-        <div className="container-xs relative mb-[50px] mt-[-80px] md:p-5">
-          <div className="flex gap-[222px] rounded-[30px] bg-gray-900 py-[50px] pl-[130px] pr-14 md:flex-row md:p-5 sm:flex-col">
+        <div className="container-xs relative mb-[50px] mt-[-80px] md:mt-0 ">
+          <div className="flex gap-[222px] rounded-[30px] bg-gray-900 py-[50px] pl-[130px] pr-14 md:flex-row md:p-5 md:gap-10 md:rounded-[0px] sm:flex-col">
             {data.map((d, index) => (
               <FloatingSection
                 {...d}
@@ -94,7 +95,8 @@ const LandingPage: React.FC = () => {
       </div>
       <AboutUs />
       <ProfileFounder />
-      <PartnerList/>
+      <PartnerList />
+      <Services />
     </div>
   );
 };

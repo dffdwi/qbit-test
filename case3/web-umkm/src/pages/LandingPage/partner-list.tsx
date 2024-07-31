@@ -8,7 +8,7 @@ const data = [
   { logoipsum: "images/img_logoipsum_215_1.png" },
 ];
 
-export default function PartnerList() {
+const PartnerList: React.FC = () => {
   return (
     <div className="flex justify-center bg-gray-900 py-[50px] md:py-5">
       <div className="container-xs flex justify-center px-14 md:p-5 md:px-5">
@@ -27,4 +27,6 @@ export default function PartnerList() {
       </div>
     </div>
   );
-}
+};
+
+export default PartnerList;

@@ -15,11 +15,11 @@ interface Props {
   landingPageHeight: number;
 }
 
-export default function Header({
+const Header: React.FC<Props> = ({
   className,
   landingPageHeight,
   ...props
-}: Props) {
+}) => {
   const [isSticky, setSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -66,11 +66,17 @@ export default function Header({
             </div>
           </div>
           <div className="flex items-center gap-3">
-            {[FaFacebookF, FaInstagram, FaLinkedin, FaTiktok].map((Icon, index) => (
-              <a key={index} href="#" className="text-white-a700 hover:text-amber-700 transition-colors duration-200">
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            {[FaFacebookF, FaInstagram, FaLinkedin, FaTiktok].map(
+              (Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="text-white-a700 hover:text-amber-700 transition-colors duration-200"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              )
+            )}
           </div>
         </div>
         <div
@@ -85,27 +91,43 @@ export default function Header({
             src="images/img_header_logo.png"
             alt="Headerlogo"
             className={`object-contain transition-all duration-300 ease-in-out ${
-              isSticky ? "h-[40px] w-[112px] md:h-8 md:w-24" : "h-[58px] w-[162px] md:h-10 md:w-28"
+              isSticky
+                ? "h-[40px] w-[112px] md:h-8 md:w-24"
+                : "h-[58px] w-[162px] md:h-10 md:w-28"
             }`}
           />
           <nav className="transition-all duration-300 ease-in-out md:hidden">
-            <ul className={`flex flex-wrap gap-[34px] ${isSticky ? "gap-[20px]" : ""}`}>
-              {["Home", "About Us", "Our Services", "Testimoni"].map((item, index) => (
-                <li key={item}>
-                  <a href="#" className="cursor-pointer">
-                    <Heading
-                      as="p"
-                      className={`uppercase tracking-[0.84px] transition-all duration-300 ease-in-out ${
-                        isSticky
-                          ? `${index === 0 ? "!text-amber-700 font-bold" : "!text-white-a700 hover:!text-amber-700"} text-sm`
-                          : `${index === 0 ? "!text-white-a700" : "!text-white-a700_bf hover:!text-white-a700"} text-base`
-                      }`}
-                    >
-                      {item}
-                    </Heading>
-                  </a>
-                </li>
-              ))}
+            <ul
+              className={`flex flex-wrap gap-[34px] ${
+                isSticky ? "gap-[20px]" : ""
+              }`}
+            >
+              {["Home", "About Us", "Our Services", "Testimoni"].map(
+                (item, index) => (
+                  <li key={item}>
+                    <a href="#" className="cursor-pointer">
+                      <Heading
+                        as="p"
+                        className={`uppercase tracking-[0.84px] transition-all duration-300 ease-in-out ${
+                          isSticky
+                            ? `${
+                                index === 0
+                                  ? "!text-amber-700 font-bold"
+                                  : "!text-white-a700 hover:!text-amber-700"
+                              } text-sm`
+                            : `${
+                                index === 0
+                                  ? "!text-white-a700"
+                                  : "!text-white-a700_bf hover:!text-white-a700"
+                              } text-base`
+                        }`}
+                      >
+                        {item}
+                      </Heading>
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </nav>
           <div className="flex items-center gap-4">
@@ -128,26 +150,34 @@ export default function Header({
         </div>
         <div
           className={`md:flex hidden flex-col w-full bg-orange-900 transition-all duration-300 ease-in-out overflow-hidden
-            ${isSticky ? "fixed top-[60px] left-0 right-0 z-50" : ""}
-            ${isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}
+            ${isSticky ? "fixed top-[50px] left-0 right-0 z-50" : ""}
+            ${
+              isMobileMenuOpen
+                ? "max-h-screen opacity-100"
+                : "max-h-0 opacity-0"
+            }
           `}
         >
           <nav className="my-0 px-4 py-2">
             <ul className="flex flex-col gap-2">
-              {["Home", "About Us", "Our Services", "Testimoni"].map((item, index) => (
-                <li key={item}>
-                  <a href="#" className="block py-2">
-                    <Heading
-                      as="p"
-                      className={`uppercase tracking-[0.84px] transition-colors duration-200 ${
-                        index === 0 ? "!text-amber-700 font-bold" : "!text-white-a700 hover:!text-amber-700"
-                      } text-sm`}
-                    >
-                      {item}
-                    </Heading>
-                  </a>
-                </li>
-              ))}
+              {["Home", "About Us", "Our Services", "Testimoni"].map(
+                (item, index) => (
+                  <li key={item}>
+                    <a href="#" className="block py-2">
+                      <Heading
+                        as="p"
+                        className={`uppercase tracking-[0.84px] transition-colors duration-200 text-center ${
+                          index === 0
+                            ? "!text-amber-700 font-bold"
+                            : "!text-white-a700 hover:!text-amber-700"
+                        } text-sm`}
+                      >
+                        {item}
+                      </Heading>
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </nav>
           <div className="px-4 py-2">
@@ -162,4 +192,6 @@ export default function Header({
       </div>
     </header>
   );
-}
+};
+
+export default Header;

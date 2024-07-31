@@ -12,8 +12,8 @@ type ImgProps = React.DetailedHTMLProps<
 
 const Img: React.FC<React.PropsWithChildren<ImgProps>> = ({
   className,
-  src = "defaultNoData.png",
-  alt = "testImg",
+  src,
+  alt,
   ...restProps
 }) => {
   return (

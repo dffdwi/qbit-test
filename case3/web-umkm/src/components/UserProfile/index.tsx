@@ -8,14 +8,17 @@ interface Props {
   userDescription?: React.ReactNode;
 }
 
-export default function UserProfile({
-  userImage = "images/img_checkmark.svg",
-  userName = "Berpengalaman",
-  userDescription = "Memiliki pengalaman lebih dari 10 tahun di dunia kuliner.",
+const UserProfile: React.FC<Props> = ({
+  userImage,
+  userName,
+  userDescription,
   ...props
-}: Props) {
+}) => {
   return (
-    <div {...props} className={`${props.className} flex items-start w-[32%] gap-5`}>
+    <div
+      {...props}
+      className={`${props.className} flex items-start w-[32%] gap-5`}
+    >
       <Img src={userImage} alt="Berpengalaman" className="h-[48px]" />
       <div className="mt-1.5 flex flex-1 flex-col items-start gap-0.5 self-end">
         <Heading size="headinglg" as="h4">
@@ -27,4 +30,6 @@ export default function UserProfile({
       </div>
     </div>
   );
-}
+};
+
+export default UserProfile;
