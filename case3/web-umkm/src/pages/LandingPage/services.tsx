@@ -1,6 +1,7 @@
 import { Heading } from "../../components";
 import { Suspense } from "react";
 import ServiceItem from "../../components/ServiceItem";
+import AnimateOnView from "../../hooks/AnimateOnView";
 
 const data = [
   {
@@ -48,25 +49,35 @@ const Services: React.FC = () => {
         <div className="container-xs flex flex-col gap-11 md:p-5">
           <div>
             <div className="flex flex-col items-start justify-center gap-5">
-              <Heading
-                as="h2"
-                className="uppercase tracking-[0.84px] !text-amber-700"
-              >
-                What We Do
-              </Heading>
-              <Heading
-                size="headingxl"
-                as="h3"
-                className="w-[48%] capitalize leading-[59px] md:w-full"
-              >
-                Berbagai Layanan Kami siap membantu anda.
-              </Heading>
+              <AnimateOnView direction="up" delay={0.1}>
+                <Heading
+                  as="h2"
+                  className="uppercase tracking-[0.84px] !text-amber-700"
+                >
+                  What We Do
+                </Heading>
+              </AnimateOnView>
+              <AnimateOnView direction="up" delay={0.2}>
+                <Heading
+                  size="headingxl"
+                  as="h3"
+                  className="w-[48%] capitalize leading-[59px] md:w-full"
+                >
+                  Berbagai Layanan Kami siap membantu anda.
+                </Heading>
+              </AnimateOnView>
             </div>
           </div>
           <div className="grid grid-cols-3 justify-center gap-[30px] md:grid-cols-2 sm:grid-cols-1">
             <Suspense fallback={<div>Loading feed...</div>}>
               {data.map((d, index) => (
-                <ServiceItem {...d} key={"wrapper" + index} />
+                <AnimateOnView
+                  key={"wrapper" + index}
+                  direction="up"
+                  delay={0.1 * (index + 1)}
+                >
+                  <ServiceItem {...d} />
+                </AnimateOnView>
               ))}
             </Suspense>
           </div>

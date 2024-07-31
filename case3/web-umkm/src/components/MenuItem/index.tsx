@@ -33,16 +33,7 @@ const MenuItem: React.FC<Props> = ({
           <Text as="p" className="w-full leading-[26px]">
             {descriptionText}
           </Text>
-          <Button
-            rightIcon={
-              <Img
-                src="images/img_profile.svg"
-                alt="Profile"
-                className="h-[18px] w-[16px]"
-              />
-            }
-            className="flex h-[54px] min-w-[180px] flex-row items-center justify-center gap-2.5 rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5"
-          >
+          <Button className="flex h-[54px] min-w-[180px] flex-row items-center justify-center gap-2.5 rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5">
             {buttonText}
           </Button>
         </div>

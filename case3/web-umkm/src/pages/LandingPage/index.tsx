@@ -12,9 +12,10 @@ import Discount from "./discount";
 import Testimonials from "./testimonials";
 import Footer from "../../components/Footer";
 import ContactUs from "./contact-us";
+import AnimateOnView from "../../hooks/AnimateOnView";
 
 const data = [
-  { mainHeading: "6", subHeading: "Varian Bakso" },
+  { mainHeading: "6", subHeading: "Menu Bakso" },
   { mainHeading: "5", subHeading: "Gerai" },
   { mainHeading: "100", subHeading: "Testimoni" },
   { mainHeading: "6", subHeading: "Layanan" },
@@ -71,44 +72,50 @@ const LandingPage: React.FC = () => {
                   handleNavClick={handleNavClick}
                 />
                 <div className="flex flex-col items-start gap-[34px] mt-auto">
-                  <div className="flex flex-col items-start gap-5 self-stretch">
-                    <Heading
-                      size="heading2xl"
-                      as="h1"
-                      className="w-[48%] capitalize leading-[78px] !text-white-a700 md:w-full"
+                  <AnimateOnView direction="up" delay={0.1}>
+                    <div className="flex flex-col items-start gap-5 self-stretch">
+                      <Heading
+                        size="heading2xl"
+                        as="h1"
+                        className="w-[48%] capitalize leading-[78px] !text-white-a700 md:w-full"
+                      >
+                        Rasakan Keajaiban Dalam Satu Gigitan
+                      </Heading>
+                      <Text
+                        as="p"
+                        className="w-[48%] leading-[26px] !text-white-a700_bf md:w-full"
+                      >
+                        Dari bakso klasik hingga kreasi unik, Baksoku siap
+                        memanjakan lidah Anda. Ayo, coba sekarang dan rasakan
+                        bedanya!
+                      </Text>
+                    </div>
+                  </AnimateOnView>
+                  <AnimateOnView direction="up" delay={0.2}>
+                    <Button
+                      onClick={() => handleNavClick("Menu")}
+                      className="flex h-[54px] min-w-[128px] flex-row items-center justify-center rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5"
                     >
-                      Rasakan Keajaiban Dalam Satu Gigitan
-                    </Heading>
-                    <Text
-                      as="p"
-                      className="w-[48%] leading-[26px] !text-white-a700_bf md:w-full"
-                    >
-                      Dari bakso klasik hingga kreasi unik, Baksoku siap
-                      memanjakan lidah Anda. Ayo, coba sekarang dan rasakan
-                      bedanya!
-                    </Text>
-                  </div>
-                  <Button
-                    onClick={() => handleNavClick("Menu")}
-                    className="flex h-[54px] min-w-[128px] flex-row items-center justify-center rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5"
-                  >
-                    MENU
-                  </Button>
+                      MENU
+                    </Button>
+                  </AnimateOnView>
                 </div>
               </div>
             </div>
           </div>
         </Parallax>
         <div className="container-xs relative mb-[50px] mt-[-80px] md:mt-0 ">
-          <div className="flex gap-[222px] rounded-[30px] bg-gray-900 py-[50px] pl-[130px] pr-14 md:flex-row md:p-5 md:gap-10 md:rounded-[0px] sm:flex-col">
-            {data.map((d, index) => (
-              <FloatingSection
-                {...d}
-                key={"boxwrapper" + index}
-                className="w-[26%] md:gap-1 sm:w-full"
-              />
-            ))}
-          </div>
+          <AnimateOnView direction="up" delay={0.1}>
+            <div className="flex gap-[222px] rounded-[30px] bg-gray-900 py-[50px] pl-[130px] pr-14 md:flex-row md:p-5 md:gap-10 md:rounded-[0px] sm:flex-col">
+              {data.map((d, index) => (
+                <FloatingSection
+                  {...d}
+                  key={"boxwrapper" + index}
+                  className="w-[26%] md:gap-1 sm:w-full"
+                />
+              ))}
+            </div>
+          </AnimateOnView>
         </div>
       </div>
       <section id="AboutUs">

@@ -2,6 +2,7 @@ import { Heading, Img, Slider } from "../../components";
 import React from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { EventObject } from "react-alice-carousel";
+import AnimateOnView from "../../hooks/AnimateOnView";
 
 const Testimonials: React.FC = () => {
   const [sliderState, setSliderState] = React.useState(0);
@@ -47,7 +48,10 @@ const Testimonials: React.FC = () => {
   ];
 
   const groupedItems = testimonialItems.map((item, index) => (
-    <div key={index} className="flex flex-col bg-black-900_11 my-10 gap-5 rounded-[30px] bg-white p-[34px] shadow-lg md:w-full md:p-5 mx-2">
+    <div
+      key={index}
+      className="flex flex-col bg-black-900_11 my-10 gap-5 rounded-[30px] bg-white p-[34px] shadow-lg md:w-full md:p-5 mx-2"
+    >
       <Heading
         size="textmd"
         as="p"
@@ -79,22 +83,25 @@ const Testimonials: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-11 overflow-auto py-[100px] md:py-5 px-5">
       <div className="container-xs self-center md:p-5">
-        <div className="flex flex-col items-start justify-center gap-5">
-          <Heading
-            as="h2"
-            className="uppercase tracking-[0.84px] !text-amber-700"
-          >
-            Testimonials Customer
-          </Heading>
-          <Heading
-            size="headingxl"
-            as="h3"
-            className="w-[48%] capitalize leading-[59px] md:w-full"
-          >
-            Kami adalah Pilihan Terbaik untuk Bakso Lezat
-          </Heading>
-        </div>
+        <AnimateOnView direction="up" delay={0.1}>
+          <div className="flex flex-col items-start justify-center gap-5">
+            <Heading
+              as="h2"
+              className="uppercase tracking-[0.84px] !text-amber-700"
+            >
+              Testimonials Customer
+            </Heading>
+            <Heading
+              size="headingxl"
+              as="h3"
+              className="w-[48%] capitalize leading-[59px] md:w-full"
+            >
+              Kami adalah Pilihan Terbaik untuk Bakso Lezat
+            </Heading>
+          </div>
+        </AnimateOnView>
       </div>
+
       <div className="mx-auto flex w-full">
         <Slider
           autoPlay

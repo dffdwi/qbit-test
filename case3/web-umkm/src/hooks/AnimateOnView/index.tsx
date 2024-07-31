@@ -39,12 +39,12 @@ const AnimateOnView: React.FC<AnimateOnViewProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const [shouldAnimate, setShouldAnimate] = useState<boolean>(false);
-  const [hasAnimated, setHasAnimated] = useState<boolean>(false); // Tambahkan state baru
+  const [hasAnimated, setHasAnimated] = useState<boolean>(false); 
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
       setShouldAnimate(true);
-      setHasAnimated(true); // Tandai bahwa animasi telah dijalankan
+      setHasAnimated(true); 
     }
   }, [isInView, hasAnimated]);
 

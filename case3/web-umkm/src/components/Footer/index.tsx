@@ -53,7 +53,7 @@ const Footer: React.FC<Props> = ({ ...props }) => {
                   </Heading>
                   <ul className="flex flex-col items-start gap-5">
                     <li>
-                      <a href="Home" target="_blank" rel="noreferrer">
+                      <a href="#" target="_blank" rel="noreferrer">
                         <Text as="p" className="!text-white-a700_bf">
                           Home
                         </Text>
@@ -74,7 +74,7 @@ const Footer: React.FC<Props> = ({ ...props }) => {
                       </a>
                     </li>
                     <li>
-                      <a href="Testimoni" target="_blank" rel="noreferrer">
+                      <a href="#" target="_blank" rel="noreferrer">
                         <Text as="p" className="!text-white-a700_bf">
                           Testimoni
                         </Text>
