@@ -13,20 +13,33 @@ import {
 interface Props {
   className?: string;
   landingPageHeight: number;
+  handleNavClick: (sectionId: string) => void;
 }
 
 const Header: React.FC<Props> = ({
   className,
   landingPageHeight,
+  handleNavClick,
   ...props
 }) => {
   const [isSticky, setSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("Home");
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setSticky(window.scrollY > landingPageHeight);
+      const sections = document.querySelectorAll("section");
+      let currentSection = "Home";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+          currentSection = section.getAttribute("id") || "Home";
+        }
+      });
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -37,6 +50,18 @@ const Header: React.FC<Props> = ({
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavClickInternal = (sectionId: string) => {
+    if (sectionId === "Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      handleNavClick(sectionId);
+    }
+    setActiveSection(sectionId);
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
   };
 
   return (
@@ -102,29 +127,24 @@ const Header: React.FC<Props> = ({
                 isSticky ? "gap-[20px]" : ""
               }`}
             >
-              {["Home", "About Us", "Our Services", "Testimoni"].map(
-                (item, index) => (
+              {["Home", "AboutUs", "OurServices", "Menu", "Testimonials"].map(
+                (item) => (
                   <li key={item}>
-                    <a href="#" className="cursor-pointer">
+                    <button
+                      onClick={() => handleNavClickInternal(item)}
+                      className="cursor-pointer"
+                    >
                       <Heading
                         as="p"
                         className={`uppercase tracking-[0.84px] transition-all duration-300 ease-in-out ${
-                          isSticky
-                            ? `${
-                                index === 0
-                                  ? "!text-amber-700 font-bold"
-                                  : "!text-white-a700 hover:!text-amber-700"
-                              } text-sm`
-                            : `${
-                                index === 0
-                                  ? "!text-white-a700"
-                                  : "!text-white-a700_bf hover:!text-white-a700"
-                              } text-base`
-                        }`}
+                          activeSection === item
+                            ? "!text-amber-700 font-bold"
+                            : "!text-white-a700 hover:!text-amber-700"
+                        } text-sm`}
                       >
-                        {item}
+                        {item.replace(/([A-Z])/g, " $1").trim()}
                       </Heading>
-                    </a>
+                    </button>
                   </li>
                 )
               )}
@@ -132,6 +152,7 @@ const Header: React.FC<Props> = ({
           </nav>
           <div className="flex items-center gap-4">
             <Button
+              onClick={() => handleNavClickInternal("ContactUs")}
               className={`flex-row items-center justify-center rounded-[26px] text-center font-semibold uppercase tracking-[0.84px] transition-all duration-300 ease-in-out md:hidden ${
                 isSticky
                   ? "h-[40px] min-w-[100px] px-[24px] py-2 text-xs bg-amber-700 text-white-a700 hover:bg-white hover:text-orange-900"
@@ -160,21 +181,24 @@ const Header: React.FC<Props> = ({
         >
           <nav className="my-0 px-4 py-2">
             <ul className="flex flex-col gap-2">
-              {["Home", "About Us", "Our Services", "Testimoni"].map(
-                (item, index) => (
+              {["Home", "AboutUs", "OurServices", "Menu", "Testimonials"].map(
+                (item) => (
                   <li key={item}>
-                    <a href="#" className="block py-2">
+                    <button
+                      onClick={() => handleNavClickInternal(item)}
+                      className="block py-2"
+                    >
                       <Heading
                         as="p"
                         className={`uppercase tracking-[0.84px] transition-colors duration-200 text-center ${
-                          index === 0
+                          activeSection === item
                             ? "!text-amber-700 font-bold"
                             : "!text-white-a700 hover:!text-amber-700"
                         } text-sm`}
                       >
-                        {item}
+                        {item.replace(/([A-Z])/g, " $1").trim()}
                       </Heading>
-                    </a>
+                    </button>
                   </li>
                 )
               )}
@@ -182,6 +206,7 @@ const Header: React.FC<Props> = ({
           </nav>
           <div className="px-4 py-2">
             <Button
+              onClick={() => handleNavClickInternal("ContactUs")}
               className="w-full flex items-center justify-center rounded-full text-center font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out
               h-10 px-4 py-2 text-sm bg-amber-700 text-white-a700 hover:bg-white hover:text-orange-900"
             >

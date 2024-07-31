@@ -32,6 +32,13 @@ const LandingPage: React.FC = () => {
     }
   }, []);
 
+  const handleNavClick = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="w-full">
       <div
@@ -59,7 +66,10 @@ const LandingPage: React.FC = () => {
             <div className="absolute inset-0 z-0"></div>
             <div className="container-xs flex flex-col items-center relative z-10 h-full md:h-[100dvh]">
               <div className="flex flex-col gap-[100px] md:gap-[75px] md:p-5 sm:gap-[50px] w-full ">
-                <Header landingPageHeight={landingPageHeight} />
+                <Header
+                  landingPageHeight={landingPageHeight}
+                  handleNavClick={handleNavClick}
+                />
                 <div className="flex flex-col items-start gap-[34px] mt-auto">
                   <div className="flex flex-col items-start gap-5 self-stretch">
                     <Heading
@@ -78,8 +88,11 @@ const LandingPage: React.FC = () => {
                       bedanya!
                     </Text>
                   </div>
-                  <Button className="flex h-[54px] min-w-[128px] flex-row items-center justify-center rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5">
-                    Pricing
+                  <Button
+                    onClick={() => handleNavClick("Menu")}
+                    className="flex h-[54px] min-w-[128px] flex-row items-center justify-center rounded-[26px] bg-orange-900 px-[34px] text-center text-[14px] font-semibold uppercase tracking-[0.84px] text-white-a700 sm:px-5"
+                  >
+                    MENU
                   </Button>
                 </div>
               </div>
@@ -98,14 +111,26 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <AboutUs />
-      <ProfileFounder />
-      <PartnerList />
-      <Services />
-      <Menu />
-      <Discount />
-      <Testimonials />
-      <ContactUs />
+      <section id="AboutUs">
+        <AboutUs />
+        <ProfileFounder />
+        <PartnerList />
+      </section>
+      <section id="OurServices">
+        <Services />
+      </section>
+      <section id="Menu">
+        <Menu />
+      </section>
+      <section id="Discount">
+        <Discount />
+      </section>
+      <section id="Testimonials">
+        <Testimonials />
+      </section>
+      <section id="ContactUs">
+        <ContactUs />
+      </section>
       <Footer />
     </div>
   );

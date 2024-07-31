@@ -31,7 +31,7 @@ const InputField: React.FC<InputFieldProps> = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="shrink-0 mt-2.5 h-16 bg-white text-black px-4 py-2 rounded-lg border border-indigo-600 border-solid max-md:max-w-full"
+        className="shrink-0 mt-2.5 h-16 bg-white text-black px-4 py-2 rounded-lg border border-solid max-md:max-w-full"
         aria-label={label}
       />
       {error && <p className="text-red-500 mt-2">{error}</p>}

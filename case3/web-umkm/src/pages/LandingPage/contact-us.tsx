@@ -137,7 +137,7 @@ const ContactUs: React.FC = () => {
           </h2>
           <AnimateOnView direction="up" delay={0.1}>
             <div className="flex flex-col mt-6 max-md:max-w-full">
-              <h1 className="text-6xl font-bold leading-[76.8px] max-md:max-w-full max-md:text-4xl ">
+              <h1 className="text-6xl font-bold leading-[76.8px] max-md:max-w-full max-md:text-4xl">
                 Contact me
               </h1>
               <p className="mt-8 text-2xl leading-9 max-md:max-w-full text-gray-600">
@@ -206,10 +206,7 @@ const ContactUs: React.FC = () => {
           </AnimateOnView>
           <AnimateOnView direction="up" delay={0.4}>
             <div className="flex flex-col mt-8 text-xl leading-8 max-md:max-w-full">
-              <label
-                htmlFor="message"
-                className="max-md:max-w-full"
-              >
+              <label htmlFor="message" className="max-md:max-w-full">
                 Message
               </label>
               <textarea
@@ -217,7 +214,7 @@ const ContactUs: React.FC = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="justify-center px-4 pt-4 pb-24 mt-2.5 bg-white text-neutral-600 rounded-lg border border-grey border-solid max-md:pb-10 max-md:max-w-full"
+                className="justify-center px-4 pt-4 pb-24 mt-2.5 bg-white text-neutral-600 rounded-lg border border-gray-400 border-solid max-md:pb-10 max-md:max-w-full"
                 placeholder="Type your message..."
               />
               {errors.message && (
@@ -229,7 +226,7 @@ const ContactUs: React.FC = () => {
             <AnimateOnView direction="up" delay={0.5}>
               <button
                 type="submit"
-                className="px-11 py-5 mt-8 text-xl leading-8 text-amber-700 whitespace-nowrap bg-gray-50 rounded-lg max-md:px-5 border border-amber-700 transition-all hover:bg-amber-700 hover:text-white"
+                className="px-11 py-5 mt-8 text-xl leading-8 text-white whitespace-nowrap bg-gray-400 rounded-lg max-md:px-5 border border-gray-400 transition-all hover:bg-gray-500 hover:border-gray-500"
               >
                 Submit
               </button>
