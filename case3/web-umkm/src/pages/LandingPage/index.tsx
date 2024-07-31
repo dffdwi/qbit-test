@@ -2,8 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { Button, Text, Heading } from "../../components";
 import Header from "../../components/Header";
 import { Parallax } from "react-parallax";
-import AboutUs from "./aboutUs";
+import AboutUs from "./about-us";
 import FloatingSection from "../../components/FloatingSection";
+import ProfileFounder from "./founder-profile";
+import PartnerList from "./partner-list";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -91,6 +93,8 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
       <AboutUs />
+      <ProfileFounder />
+      <PartnerList/>
     </div>
   );
 };
