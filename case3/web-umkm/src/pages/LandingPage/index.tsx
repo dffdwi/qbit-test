@@ -7,6 +7,7 @@ import FloatingSection from "../../components/FloatingSection";
 import ProfileFounder from "./founder-profile";
 import PartnerList from "./partner-list";
 import Services from "./services";
+import Menu from "./menu";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -97,6 +98,7 @@ const LandingPage: React.FC = () => {
       <ProfileFounder />
       <PartnerList />
       <Services />
+      <Menu />
     </div>
   );
 };
