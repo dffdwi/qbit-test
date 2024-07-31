@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Button, Text, Heading } from "../../components";
 import Header from "../../components/Header";
-import BaksoVariantHeader from "../../components/BaksoVariantHeader";
-import { Parallax } from 'react-parallax';
+import { Parallax } from "react-parallax";
+import AboutUs from "./aboutUs";
+import FloatingSection from "../../components/FloatingSection";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -17,28 +18,34 @@ const LandingPage: React.FC = () => {
 
   useEffect(() => {
     if (landingPageRef.current) {
-      setLandingPageHeight(landingPageRef.current.getBoundingClientRect().height);
+      setLandingPageHeight(
+        landingPageRef.current.getBoundingClientRect().height
+      );
     }
   }, []);
 
   return (
     <div className="w-full h-[10000px]">
-      <div ref={landingPageRef} className="flex flex-col items-center bg-white-a700">
+      <div
+        ref={landingPageRef}
+        className="flex flex-col items-center bg-white-a700"
+      >
         <Parallax
           bgImage="/images/img_header.png"
           strength={500}
           className="w-full"
           bgImageStyle={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
           contentClassName="flex items-center justify-center"
         >
-          <div 
+          <div
             className="w-full h-[798px] self-stretch py-5 md:h-auto relative flex items-center justify-center"
             style={{
-              background: 'linear-gradient(90deg, rgba(89, 31, 10, 0.5), rgba(89, 31, 10, 0.1))',
+              background:
+                "linear-gradient(90deg, rgba(89, 31, 10, 0.5), rgba(89, 31, 10, 0.1))",
             }}
           >
             <div className="absolute inset-0 z-0"></div>
@@ -71,10 +78,10 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
         </Parallax>
-        <div className="container-xs relative mb-[50px] mt-[-80px] md:p-5 z-20">
+        <div className="container-xs relative mb-[50px] mt-[-80px] md:p-5">
           <div className="flex gap-[222px] rounded-[30px] bg-gray-900 py-[50px] pl-[130px] pr-14 md:flex-row md:p-5 sm:flex-col">
             {data.map((d, index) => (
-              <BaksoVariantHeader
+              <FloatingSection
                 {...d}
                 key={"boxwrapper" + index}
                 className="w-[26%] md:gap-1 sm:w-full"
@@ -83,6 +90,7 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <AboutUs />
     </div>
   );
 };
