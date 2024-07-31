@@ -11,6 +11,7 @@ import Menu from "./menu";
 import Discount from "./discount";
 import Testimonials from "./testimonials";
 import Footer from "../../components/Footer";
+import ContactUs from "./contact-us";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -104,6 +105,7 @@ const LandingPage: React.FC = () => {
       <Menu />
       <Discount />
       <Testimonials />
+      <ContactUs />
       <Footer />
     </div>
   );

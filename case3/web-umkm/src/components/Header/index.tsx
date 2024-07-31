@@ -138,7 +138,7 @@ const Header: React.FC<Props> = ({
                   : "h-[54px] min-w-[124px] px-[34px] py-3 text-sm bg-orange-900 text-white-a700 hover:bg-amber-700"
               }`}
             >
-              Pricing
+              Contact Us
             </Button>
             <button
               onClick={toggleMobileMenu}
@@ -185,7 +185,7 @@ const Header: React.FC<Props> = ({
               className="w-full flex items-center justify-center rounded-full text-center font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out
               h-10 px-4 py-2 text-sm bg-amber-700 text-white-a700 hover:bg-white hover:text-orange-900"
             >
-              Pricing
+              Contact Us
             </Button>
           </div>
         </div>
