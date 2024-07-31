@@ -8,6 +8,7 @@ import ProfileFounder from "./founder-profile";
 import PartnerList from "./partner-list";
 import Services from "./services";
 import Menu from "./menu";
+import Discount from "./discount";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -49,7 +50,7 @@ const LandingPage: React.FC = () => {
             className="w-full h-[798px] self-stretch py-5 md:h-auto relative flex items-center justify-center "
             style={{
               background:
-                "linear-gradient(90deg, rgba(89, 31, 10, 0.5), rgba(89, 31, 10, 0.1))",
+                "linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3))",
             }}
           >
             <div className="absolute inset-0 z-0"></div>
@@ -99,6 +100,7 @@ const LandingPage: React.FC = () => {
       <PartnerList />
       <Services />
       <Menu />
+      <Discount />
     </div>
   );
 };

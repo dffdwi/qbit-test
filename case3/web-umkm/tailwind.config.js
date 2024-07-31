@@ -20,15 +20,17 @@ export default {
           "900_7f": "#591f0a7f",
         },
         orange: { 900: "#d65108" },
-        white: { a700: "#ffffff", a700_3f: "#ffffff3f", a700_7f: "#ffffff7f", a700_bf: "#ffffffbf" },
+        white: {
+          a700: "#ffffff",
+          a700_3f: "#ffffff3f",
+          a700_7f: "#ffffff7f",
+          a700_bf: "#ffffffbf",
+        },
       },
       boxShadow: { xs: "0 10px 25px 0 #00000011" },
       fontFamily: { oswald: "Oswald", archivo: "Archivo" },
-      backgroundImage: {
-        gradient1: "linear-gradient(90deg, #ffffff7f,#00000000), url(/images/img_cta.png)",
-      },
       backgroundAttachment: {
-        fixed: 'fixed',
+        fixed: "fixed",
       },
     },
   },
