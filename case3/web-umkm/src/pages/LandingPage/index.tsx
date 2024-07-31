@@ -9,6 +9,7 @@ import PartnerList from "./partner-list";
 import Services from "./services";
 import Menu from "./menu";
 import Discount from "./discount";
+import Testimonials from "./testimonials";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -101,6 +102,7 @@ const LandingPage: React.FC = () => {
       <Services />
       <Menu />
       <Discount />
+      <Testimonials />
     </div>
   );
 };
