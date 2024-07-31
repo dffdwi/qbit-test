@@ -77,7 +77,7 @@ const Testimonials: React.FC = () => {
   ));
 
   return (
-    <div className="flex flex-col items-center justify-center gap-11 overflow-auto bg-gray-100 py-[100px] md:py-5 px-5">
+    <div className="flex flex-col items-center justify-center gap-11 overflow-auto py-[100px] md:py-5 px-5">
       <div className="container-xs self-center md:p-5">
         <div className="flex flex-col items-start justify-center gap-5">
           <Heading

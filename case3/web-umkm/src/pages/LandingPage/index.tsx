@@ -10,6 +10,7 @@ import Services from "./services";
 import Menu from "./menu";
 import Discount from "./discount";
 import Testimonials from "./testimonials";
+import Footer from "../../components/Footer";
 
 const data = [
   { mainHeading: "6", subHeading: "Varian Bakso" },
@@ -31,7 +32,7 @@ const LandingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-[10000px]">
+    <div className="w-full">
       <div
         ref={landingPageRef}
         className="flex flex-col items-center bg-white-a700"
@@ -103,6 +104,7 @@ const LandingPage: React.FC = () => {
       <Menu />
       <Discount />
       <Testimonials />
+      <Footer />
     </div>
   );
 };
